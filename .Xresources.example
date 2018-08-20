@@ -1,6 +1,6 @@
 ! Font rendering
 
-Xft.autohint: 1
+Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: true
 Xft.hintstyle: hintslight
@@ -16,6 +16,7 @@ XTerm*faceSize: 10
 UXTerm*renderFont: true
 UXTerm*faceName: Source Code Pro for Powerline
 UXTerm*faceSize: 10
+UXterm*scaleHeight: 1.01
 
 ! Colors 
 

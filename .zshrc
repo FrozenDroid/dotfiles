@@ -96,5 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=/home/vincent/.local/bin:$PATH
+
 alias install='sudo xbps-install'
 alias pkgsearch='xbps-query -Rs '
