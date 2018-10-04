@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/vincent/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -96,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vim="nvim"
 fpath=(~/.zsh/completion $fpath)
 
 export PATH="/usr/local/cuda-9.2/bin:${HOME}/.npm-packages/bin:/home/vincent/.local/bin:$PATH"
@@ -107,3 +108,5 @@ alias pkgsearch='xbps-query -Rs '
 provides() {
     xbps-query -o '*/'$@ 
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
