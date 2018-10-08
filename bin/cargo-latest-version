@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -s "https://crates.io/api/v1/crates/$1" | json 'this.crate.max_version'

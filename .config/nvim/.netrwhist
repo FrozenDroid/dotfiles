@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =1
+<<<<<<< HEAD
 let g:netrw_dirhist_1='/home/vincent/dotfiles/.config/nvim/colors'
+=======
+let g:netrw_dirhist_1='/home/vincent/.config/fontconfig/conf.d'
+>>>>>>> d0527dc999d8813d34689389c1ed44f97515ef6b

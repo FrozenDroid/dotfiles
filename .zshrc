@@ -159,3 +159,18 @@ eval $(thefuck --alias)
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
 
 export GPG_TTY=$(tty)
+
+alias vim="nvim"
+fpath=(~/.zsh/completion $fpath)
+
+export PATH="/usr/local/cuda-9.2/bin:${HOME}/.npm-packages/bin:/home/vincent/.local/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda-9.2/lib64:$LD_LIBRARY_PATH"
+
+# Aliases
+alias install='sudo xbps-install'
+alias pkgsearch='xbps-query -Rs '
+provides() {
+    xbps-query -o '*/'$@ 
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

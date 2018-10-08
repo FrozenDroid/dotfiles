@@ -1,0 +1,4 @@
+#!/bin/bash
+
+name="$(sed -nre '/^name/s/^.+"([a-zA-Z0-9_-]+)".*$/\1/p' Cargo.toml)"
+xdg-open target/doc/$name/index.html

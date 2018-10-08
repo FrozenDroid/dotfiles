@@ -1,4 +1,4 @@
-Xft.dpi: 220
+Xft.dpi: 96
 Xft.antialias: true
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
@@ -29,7 +29,7 @@ rofi.hide-scrollbar:  true
 rofi.separator-style: none
 rofi.lines:           4
 rofi.padding:         30
-rofi.dpi:	      220
+rofi.dpi:	          96
 
 ! Urxvt settings
 ! --------------------------------------------------------------------

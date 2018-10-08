@@ -1,0 +1,8 @@
+[user]
+	name = Vincent Stakenburg
+	email = vincentstakenburg@gmail.com
+	username = FrozenDroid
+[core]
+	editor = nvim
+[alias]
+	st = status
