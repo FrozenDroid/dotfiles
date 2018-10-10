@@ -27,6 +27,7 @@ source .screenlayout/layout.sh
 
 xrdb -merge ~/.Xresources
 
+compton &
 start-pulseaudio-x11 &
-i3
+exec i3
 

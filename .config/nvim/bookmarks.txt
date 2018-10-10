@@ -1,4 +1,6 @@
 ~/.config/i3/config
+~/.config/alacritty/alacritty.yml
+~/.config/polybar/config
 ~/.config/nvim/bookmarks.txt
 ~/.config/nvim/init.vim
 ~/.config/nvim/projects.txt

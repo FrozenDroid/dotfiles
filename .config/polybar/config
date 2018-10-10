@@ -25,8 +25,8 @@ red = #ee3333
 [bar/main]
 dpi = 96
 width = 100%
-height = 20
-radius = 1.0
+height = 18
+radius = 0.0
 fixed-center = true
 
 monitor = ${env:MONITOR:DP-0}
@@ -37,11 +37,10 @@ foreground = ${colors.foreground}
 border-size = 1
 border-color = #131313
 
-font-0 = Knack Nerd Font:pixelsize=12:weight=bold;5
-font-1 = Knack Nerd Font:pixelsize=20;5
+font-0 = DroidSansMono Nerd Font:pixelsize=12;antialias=false;3
+font-1 = DroidSansMono Nerd Font:pixelsize=20;antialias=false;5
 
 modules-left = i3 arrow0 i3index arrow
-modules-center = arrow10 music arrow9
 modules-right = arrow8 gmail arrow7 memory arrow6 cpu arrow7 temperature arrow6 volume arrow7 time arrow6
 
 tray-position = right
@@ -156,7 +155,7 @@ content-background = ${colors.trans}
 
 [module/gmail]
 type = custom/script
-exec = ~/.config/polybar/gmail/launch.py --prefix ' ' --color '#4f97d7'
+exec = ~/.config/polybar/gmail/launch.py --prefix ' ' --color '#4f97d7' --nosound
 tail = true
 click-left = xdg-open https://mail.google.com
 format-foreground = ${colors.blue}
@@ -186,7 +185,7 @@ enable-click = true
 enable-scroll = true
 
 ws-icon-0 = 0;*
-ws-icon-default = ○
+ws-icon-default = 
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
@@ -196,7 +195,7 @@ label-mode-foreground = ${colors.red}
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
-label-focused = " ● "
+label-focused = "  "
 label-focused-foreground = ${colors.blue}
 label-focused-background = ${colors.background}
 
@@ -308,9 +307,9 @@ ramp-volume-3-background = ${colors.background}
 
 [module/temperature]
 type = internal/temperature
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
 interval = 0.5
-thermal-zone = 2
+thermal-zone = 0
 
 format = <label>
 format-background = ${colors.grey}
@@ -343,16 +342,6 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-
-[module/music]
-type = custom/script
-interval = 1
-
-format = <label>
-format-background = ${colors.background}
-
-label = " %output:0:45:...% "
-exec = ~/bin/spotify-now-playing
 
 [settings]
 screenchange-reload = true
