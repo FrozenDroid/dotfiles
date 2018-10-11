@@ -1,6 +1,9 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 font pango:Droid Sans Mono 8
 
+gaps inner 5
+# gaps outer 5
+
 #colors
 set_from_resource $darkred     color1  #000000
 set_from_resource $red         color9  #000000

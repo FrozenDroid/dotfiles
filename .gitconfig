@@ -1,8 +1,10 @@
 [user]
-	name = Vincent Stakenburg
-	email = vincentstakenburg@gmail.com
+	name     = Vincent Stakenburg
+	email    = vincentstakenburg@gmail.com
 	username = FrozenDroid
 [core]
-	editor = nvim
+	editor   = nvim
 [alias]
-	st = status
+	aa 	 = add .
+	dif      = diff
+	st       = status

@@ -1,17 +1,19 @@
 " Plugins {{{
 call plug#begin()
 
+    Plug 'thaerkh/vim-workspace'
+
     " Git helpers
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
 
     " Autocompletion
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-tmux'
-    Plug 'ncm2/ncm2-path'
-    Plug 'Shougo/neco-vim'
+    "Plug 'ncm2/ncm2'
+    "Plug 'roxma/nvim-yarp'
+    "Plug 'ncm2/ncm2-bufword'
+    "Plug 'ncm2/ncm2-tmux'
+    "Plug 'ncm2/ncm2-path'
+    "Plug 'Shougo/neco-vim'
  "   Plug 'Quramy/tsuquyomi'
  "   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
@@ -19,13 +21,14 @@ call plug#begin()
     Plug 'Shougo/echodoc.vim'
 
 
-    Plug 'autozimu/LanguageClient-neovim',  { 'branch': 'next', 'do': 'bash install.sh' }
+    Plug 'Valloric/YouCompleteMe'
+    " Plug 'autozimu/LanguageClient-neovim',  { 'branch': 'next', 'do': 'bash install.sh' }
 
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
     " Syntax
-    Plug 'leafgarland/typescript-vim'
+    Plug 'herringtondarkholme/yats.vim'
 
     " UI Plugins
     Plug 'scrooloose/nerdtree'
@@ -37,6 +40,7 @@ call plug#begin()
     Plug 'godlygeek/tabular'
     Plug 'tpope/vim-commentary'
     Plug 'konfekt/fastfold'
+    Plug 'tpope/vim-sleuth'
 
     " Syntax
     Plug 'stephpy/vim-yaml'
@@ -66,28 +70,18 @@ set foldtext='═══'.substitute(substitute(getline(v:foldstart),'/\\*\\\|\\*
 
 " Plugin Configuration {{{
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-au User Ncm2Plugin call ncm2#register_source({
-    \ 'name' : 'css',
-    \ 'priority': 9, 
-    \ 'subscope_enable': 1,
-    \ 'scope': ['css','scss'],
-    \ 'mark': 'css',
-    \ 'word_pattern': '[\w\-]+',
-    \ 'complete_pattern': ':\s*',
-    \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-    \ })
-set completeopt=noinsert,menuone,noselect
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-    \ 'rust':       ['rustup', 'run', 'nightly', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ }
-
-let g:tsuquyomi_completion_case_sensitive = 1
-let g:tsuquyomi_completion_detail         = 1
-let g:tsuquyomi_completion_preview        = 1
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+" au User Ncm2Plugin call ncm2#register_source({
+  "  \ 'name' : 'css',
+  "  \ 'priority': 9, 
+  "  \ 'subscope_enable': 1,
+  "  \ 'scope': ['css','scss'],
+  "  \ 'mark': 'css',
+  "  \ 'word_pattern': '[\w\-]+',
+  "  \ 'complete_pattern': ':\s*',
+  "  \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+  "  \ })
+" set completeopt=noinsert,menuone,noselect
 
 let g:gitgutter_sign_added            = '--'
 let g:gitgutter_sign_modified         = '--'
@@ -113,6 +107,9 @@ nnoremap <silent> <leader>q  :<C-u>Bdelete<CR>
 nnoremap <silent> <leader>Q  :<C-u>Bdelete!<CR>
 nnoremap <silent> <A-q>      :<C-u>Bdelete<CR>
 nnoremap <silent> <A-Q>      :<C-u>Bdelete!<CR>
+
+" Workspace
+nnoremap <silent> <leader>sw :ToggleWorkspace<CR>
 
 " Clear search
 nnoremap <silent> <BS>       :<C-u>nohlsearch<CR><C-W>z
