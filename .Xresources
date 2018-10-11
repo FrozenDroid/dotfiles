@@ -8,71 +8,66 @@ Xft.hintstyle: hintslight
 
 ! Colors
 ! --------------------------------------------------------------------
-#define red     #c7ae95
-#define green   #95c7ae
-#define yellow  #aec795
-#define blue    #ae95c7
-#define magenta #c795ae
-#define cyan    #95aec7
-#define bg      #1c2023
-#define fg      #c7ccd1
+!TomorrowNight
+#define t_background        #1d1f21
+#define t_current_line      #282a2e
+#define t_selection      	#373b41
+#define t_foreground      	#c5c8c6
+#define t_comment	     	#969896
+#define t_red		     	#cc6666
+#define t_orange	     	#de935f
+#define t_yellow        	#f0c674
+#define t_green	        	#b5bd68
+#define t_aqua	        	#8abeb7
+#define t_blue	        	#81a2be
+#define t_purple        	#b294bb
 
 ! Rofi Settings
 ! --------------------------------------------------------------------
 rofi.color-enabled:   true
-rofi.color-window:    bg, cyan
-rofi.color-normal:    bg, fg, bg, cyan, bg
-rofi.color-active:    bg, fg, bg, cyan, bg
-rofi.color-urgent:    bg, fg, bg, red, bg
+rofi.color-window:    t_background, t_aqua
+rofi.color-normal:    t_background, t_foreground, t_background, t_aqua, t_background
+rofi.color-active:    t_background, t_foreground, t_background, t_aqua, t_background
+rofi.color-urgent:    t_background, t_foreground, t_background, t_red,  t_background
 rofi.bw:              2
 rofi.hide-scrollbar:  true
 rofi.separator-style: none
-rofi.lines:           4
+rofi.lines:           5
 rofi.padding:         30
 rofi.dpi:	          96
 
-! Urxvt settings
-! --------------------------------------------------------------------
-URxvt*scrollBar: false
-URxvt.font:      xft:Droid Sans Mono:size=10
+*.foreground:   t_foreground
+*.background:   t_background
+*.cursorColor:  #aeafad
 
+! Black / Grey
+*.color0:       #000000
+*.color8:       #666666
 
-! Urxvt colors
-! --------------------------------------------------------------------
-! special
-*.foreground:   fg
-*.background:   bg
-*.cursorColor:  #c7ccd1
-URxvt*internalBorder: 10
+! Red / Bright Red
+*.color1:       t_red
+*.color9:       #FF3334
 
-! black
-*.color0:       #1c2023
-*.color8:       #747c84
+! Green + Bright Green
+*.color2:       t_green
+*.color10:      #9ec400
 
-! red
-*.color1:       red
-*.color9:       red
+! Yellow (Orange) + Bright Yellow (Yellow)
+*.color3:       t_orange
+*.color11:      t_yellow
 
-! green
-*.color2:       green
-*.color10:      green
+! Blue + Bright Blue
+*.color4:       t_blue
+*.color12:      t_blue
 
-! yellow
-*.color3:       yellow
-*.color11:      yellow
+! Magenta (Purple) + Bright Magenta
+*.color5:       t_purple
+*.color13:      #b777e0
 
-! blue
-*.color4:       blue
-*.color12:      blue
+! Cyan (Aqua) + Bright Cyan
+*.color6:       t_aqua
+*.color14:      #54ced6
 
-! magenta
-*.color5:       magenta
-*.color13:      magenta
-
-! cyan
-*.color6:       cyan
-*.color14:      cyan
-
-! white
-*.color7:       #c7ccd1
-*.color15:      #f3f4f5
+! Light Grey (Selection) + White (Current Line)
+*.color7:       t_selection
+*.color15:      t_current_line

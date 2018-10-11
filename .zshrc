@@ -152,8 +152,6 @@ function preexec() {
     set_window_title "${USER}@$(hostname): ${PWD} $ $cmd"
 }
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 eval $(thefuck --alias)
 
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi

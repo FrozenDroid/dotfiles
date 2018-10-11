@@ -39,6 +39,7 @@ call plug#begin()
     Plug 'konfekt/fastfold'
 
     " Syntax
+    Plug 'stephpy/vim-yaml'
     Plug 'rust-lang/rust.vim'
 call plug#end()
 " }}}
@@ -167,6 +168,7 @@ noremap  <silent> <leader>t\ :Tabularize /<bar><CR>
 let g:solarized_termcolors=256
 syntax enable
 colorscheme solarized
+hi Normal ctermbg=NONE guibg=NONE
 let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
