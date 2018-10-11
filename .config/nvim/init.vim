@@ -105,6 +105,10 @@ inoremap <silent> [<CR>      [<CR>]<C-o>O
 inoremap <silent> (<CR>      (<CR>);<C-o>O
 inoremap <silent> ({<CR>     ({<CR>});<C-o>O
 
+nnoremap <silent> <A-Tab>    :call AltTab()<CR>
+inoremap <silent> <A-Tab>    <C-c>:call AltTab()<CR>
+tnoremap <silent> <A-Tab>    <C-\><C-n>:call AltTab()<CR>
+
 " YCM
 nnoremap <silent> <leader>cF  :YcmCompleter FixIt<CR>
 nnoremap <silent> <leader>cf  :YcmCompleter Format<CR>
@@ -208,3 +212,18 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+" Functions {{{
+    " Alt-tab to switch windows
+    function! AltTab() " {{{
+        if winnr('$') == 2
+            wincmd w
+        else
+            wincmd p
+        endif
+
+        if exists('b:terminal_job_id')
+            startinsert
+        endif
+    endfunction " }}}
+" }}}
