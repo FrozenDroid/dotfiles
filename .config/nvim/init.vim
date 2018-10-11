@@ -35,6 +35,7 @@ call plug#begin()
     Plug 'altercation/vim-colors-solarized'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'edkolev/tmuxline.vim'
 
     " Formatting
     Plug 'godlygeek/tabular'
@@ -43,13 +44,16 @@ call plug#begin()
     Plug 'tpope/vim-sleuth'
 
     " Syntax
+    Plug 'vim-syntastic/syntastic'
     Plug 'stephpy/vim-yaml'
     Plug 'rust-lang/rust.vim'
 call plug#end()
+
 " }}}
 
 " General preferences {{{
 set mouse=a
+set signcolumn=yes
 set hlsearch
 set incsearch
 set noshowmode
@@ -69,24 +73,23 @@ set foldtext='═══'.substitute(substitute(getline(v:foldstart),'/\\*\\\|\\*
 " }}}
 
 " Plugin Configuration {{{
-" enable ncm2 for all buffers
-" autocmd BufEnter * call ncm2#enable_for_buffer()
-" au User Ncm2Plugin call ncm2#register_source({
-  "  \ 'name' : 'css',
-  "  \ 'priority': 9, 
-  "  \ 'subscope_enable': 1,
-  "  \ 'scope': ['css','scss'],
-  "  \ 'mark': 'css',
-  "  \ 'word_pattern': '[\w\-]+',
-  "  \ 'complete_pattern': ':\s*',
-  "  \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-  "  \ })
-" set completeopt=noinsert,menuone,noselect
+let g:ycm_key_list_stop_completion    = [ '<Enter>' ]
 
-let g:gitgutter_sign_added            = '--'
-let g:gitgutter_sign_modified         = '--'
-let g:gitgutter_sign_modified_removed = '▁▁'
-let g:gitgutter_sign_removed          = '▁▁'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_typescript_checkers      = [ 'tslint' ]
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list            = 1
+let g:syntastic_check_on_open            = 1
+let g:syntastic_check_on_wq              = 0
+
+let g:gitgutter_sign_added               = '++'
+let g:gitgutter_sign_modified            = '--'
+let g:gitgutter_sign_modified_removed    = '▁▁'
+let g:gitgutter_sign_removed             = '▁▁'
 " }}}
 
 " Mapping {{{
@@ -101,6 +104,16 @@ inoremap <silent> {<CR>      {<CR>}<C-o>O
 inoremap <silent> [<CR>      [<CR>]<C-o>O
 inoremap <silent> (<CR>      (<CR>);<C-o>O
 inoremap <silent> ({<CR>     ({<CR>});<C-o>O
+
+" YCM
+nnoremap <silent> <leader>cF  :YcmCompleter FixIt<CR>
+nnoremap <silent> <leader>cf  :YcmCompleter Format<CR>
+nnoremap <silent> <leader>cfi :YcmCompleter OrganizeImports<CR>
+nnoremap <silent> <leader>cd  :YcmDiags<CR>
+nnoremap <silent> <leader>cD  :YcmForceCompileAndDiagnostics<CR>
+nnoremap <silent> <leader>cg  :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>cr  :YcmCompleter GoToReferences<CR>
+nnoremap <expr>   <leader>cR  (':YcmCompleter RefactorRename ' . input("New name: ") . '<CR>')
 
 " Buffer
 nnoremap <silent> <leader>q  :<C-u>Bdelete<CR>

@@ -154,8 +154,6 @@ function preexec() {
 
 eval $(thefuck --alias)
 
-if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
-
 export GPG_TTY=$(tty)
 
 alias vim="nvim"

@@ -5,6 +5,6 @@
 [core]
 	editor   = nvim
 [alias]
-	aa 	 = add .
-	dif      = diff
-	st       = status
+	aa  = add .
+	dif = diff
+	st  = status

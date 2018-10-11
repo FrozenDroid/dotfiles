@@ -1,3 +1,4 @@
+~/code/c/avr/EcoTraceOS/
 ~/code/rust/EcoSync/
 ~/code/angular/EcoTrace
 ~/code/docker/ecotrace/volumes/website
