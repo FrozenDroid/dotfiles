@@ -12,7 +12,8 @@ call plug#begin()
     Plug 'ncm2/ncm2-tmux'
     Plug 'ncm2/ncm2-path'
     Plug 'Shougo/neco-vim'
-
+ "   Plug 'Quramy/tsuquyomi'
+ "   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
     Plug 'moll/vim-bbye'
     Plug 'Shougo/echodoc.vim'
@@ -22,6 +23,9 @@ call plug#begin()
 
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
+
+    " Syntax
+    Plug 'leafgarland/typescript-vim'
 
     " UI Plugins
     Plug 'scrooloose/nerdtree'
@@ -75,8 +79,14 @@ au User Ncm2Plugin call ncm2#register_source({
 set completeopt=noinsert,menuone,noselect
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'rust':   ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust':       ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
     \ }
+
+let g:tsuquyomi_completion_case_sensitive = 1
+let g:tsuquyomi_completion_detail         = 1
+let g:tsuquyomi_completion_preview        = 1
 
 let g:gitgutter_sign_added            = '--'
 let g:gitgutter_sign_modified         = '--'
@@ -124,6 +134,25 @@ nnoremap <silent> <leader>vr :so %<CR>
 
 " NERD tree toggle
 nnoremap <silent> <leader>nt  :<C-u>NERDTreeToggle<CR>
+
+" LSP features
+nnoremap <silent>         ga :<C-u>call LanguageClient_textDocument_codeAction()<CR>
+nnoremap <silent>         gd :<C-u>call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent>         gh :<C-u>call Dark_LanguageClient_textDocument_hover()<CR>
+nnoremap <silent>         gr :<C-u>call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent>         gt :<C-u>call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <silent> <leader>ga ga
+nnoremap <silent> <leader>gd gd
+nnoremap <silent> <leader>gh gh
+nnoremap <silent> <leader>gr gr
+nnoremap <silent> <leader>gt gt
+augroup tsserver
+    autocmd!
+    autocmd FileType typescript
+                \   nnoremap <buffer> <silent> ga :<C-u>TsuQuickFix<CR>
+                \ | nnoremap <buffer> <silent> gd :<C-u>TsuDefinition<CR>
+                \ | nnoremap <buffer> <silent> gr :<C-u>TsuRenameSymbol<CR>
+augroup end
 
 " Tabularize
 noremap  <silent> <leader>t, :Tabularize /,\zs /l0<CR>
