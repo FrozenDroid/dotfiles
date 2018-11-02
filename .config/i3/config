@@ -43,7 +43,7 @@ for_window [class=".*"] border pixel 0
 floating_modifier $mod
 
 bindsym Print exec ~/dotfiles/bin/screen.sh
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec WINIT_HIDPI_FACTOR=1.8 alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,5 +202,6 @@ mode "$mode_gaps_outer" {
 
 exec_always --no-startup-id ~/.config/polybar/launch
 # Startup things
+exec --no-startup-id nm-applet
 exec --no-startup-id redshift
 exec --no-startup-id feh --randomize --bg-scale ~/backgrounds
